@@ -1,0 +1,55 @@
+(SWITCH) BASIC CONFIGURATION
+-------------------------------------------------------------
+enable 
+conf t
+hostname *name*
+enable secret *secret*
+line consloe 0
+password *password*
+login
+service password-encryption
+exit
+
+line interface vlan 1
+description *desc*
+ip address *ipv4 address/ subnet mask*
+no shutdown
+exit
+
+ip default-gateway *ipv4 address*
+
+copy running-config startup-config
+-------------------------------------------------------------
+(ROUTER) BASIC CONFIGURATION
+-------------------------------------------------------------
+enable
+config t
+
+hostname *name*
+enable secret *secret*
+line console 0
+password *password*
+login
+exit
+
+line vty 0 4
+password *password*
+login
+transport input ssh telnet
+exit
+service password-encryption
+banner motd "..."
+-------------------------------------------------------------
+INTERFACE CONFIGURATION
+-------------------------------------------------------------
+line interface *interface*
+description *...*
+ip address * ipv4 address / subnet*
+ipv6 address *ipv6 address/prefix
+no shutdown
+exit
+
+NA KRAJU SVEGA:
+--copy running-config startup-config--
+-------------------------------------------------------------
+
